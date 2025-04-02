@@ -11,4 +11,10 @@ public class JenkinsController {
 	{
 		return "hello";
 	}
+	
+	@GetMapping("/homePage")
+	public String home()
+	{
+		return "Home";
+	}
 }
