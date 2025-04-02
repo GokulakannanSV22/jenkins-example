@@ -28,17 +28,6 @@ pipeline {
 
     post {
 
-        success {
-
-            mail to: '2k21csbs22@kiot.ac.in,2k21csbs20@kiot.ac.in,2k21csbs15@kiot.ac.in,2k21csbs27@kiot.ac.in',
-
-                 subject: "Jenkins Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-
-                 body: "Hey Team,\n\nThe build for ${env.JOB_NAME} #${env.BUILD_NUMBER} was successful! 🚀\n\nCheck the details here: ${env.BUILD_URL}\n\nKeep up the great work!"
-
-        }
-
-        
 
         failure {
 
