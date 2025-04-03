@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+      agent {
+        docker {
+            image 'openjdk:17-jdk-slim'  // Run pipeline inside a container with JDK
+            args '-u root'  // Run as root to avoid permission issues
+        }
+    }
     tools {
         jdk 'jdk-17'
         maven 'mvn'
