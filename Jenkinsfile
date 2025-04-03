@@ -40,21 +40,6 @@ stage('Push Image to DockerHub') {
                         bat 'docker push gokulakannansv/docker-example'
                 }
             }
-    post {
-
-
-        failure {
-
-            mail to: '2k21csbs22@kiot.ac.in,2k21csbs20@kiot.ac.in,2k21csbs15@kiot.ac.in,2k21csbs27@kiot.ac.in',
-
-                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-
-                 body: "Hello Team,\n\nOops! The build for ${env.JOB_NAME} #${env.BUILD_NUMBER} has failed. 😞\n\nPlease check the logs and fix the issue.\n\nBuild URL: ${env.BUILD_URL}"
-
-                
-
-        }
-
-    }
-
+   
+}
 }
