@@ -25,7 +25,21 @@ pipeline {
         }
 
     }
+    stage('Build Docker Image') {
+            steps {
+                script {
+                    bat 'docker build -t gokulakannansv/docker-example .'
+                }
+            }
+        }
 
+stage('Push Image to DockerHub') {
+            steps {
+                script {
+                        bat "docker login"
+                        bat 'docker push gokulakannansv/docker-example'
+                }
+            }
     post {
 
 
