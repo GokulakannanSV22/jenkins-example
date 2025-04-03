@@ -1,10 +1,5 @@
 pipeline {
-      agent {
-        docker {
-            image 'openjdk:17-jdk-slim'  // Run pipeline inside a container with JDK
-            args '-u root'  // Run as root to avoid permission issues
-        }
-    }
+      any agent 
     tools {
         jdk 'jdk-17'
         maven 'mvn'
@@ -29,7 +24,7 @@ pipeline {
     steps {
         script {
             withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
+                bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USERNAME% --password-stdin'
                 bat 'docker push gokulakannansv/docker-example'
             }
         }
