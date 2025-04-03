@@ -1,5 +1,5 @@
 pipeline {
-      any agent 
+    agent any 
     tools {
         jdk 'jdk-17'
         maven 'mvn'
