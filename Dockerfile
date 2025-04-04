@@ -1,4 +1,5 @@
-FROM openjdk:17-jdk-slim
+FROM adoptopenjdk:17-jdk-slim
+
 
 WORKDIR /app
 
